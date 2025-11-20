@@ -1,4 +1,29 @@
 const stuModel = require('../models/stuModel');
+const adminModel = require('../models/adminModel');
+
+
+// Admin login page . 
+const adminLog = async (req, res) => {
+    const { email, password } = req.body;
+    try {
+        const Admin = await adminModel.findOne({ email: email });
+
+        if (!Admin) {
+            res.status(401).send({ msg: "Admin's email is Invalid" });
+        }
+
+        if (Admin.password !== password) {
+            res.status(401).send({ msg: "Admin's password is Invalid" });
+        }
+
+        res.status(200).send({ Admin: Admin, msg: "Admin Logged in successfully!" });
+    }
+    catch (error) {
+        console.log(error);
+    }
+    res.send("okk")
+}
+
 
 const homePg = (req, res) => {
     res.send("hello node")
@@ -57,11 +82,10 @@ const editSave = async (req, res) => {
     res.send({ msg: "data saved succesfully ... " });
 }
 
-const adminInfo = async (req, res) => {
-    console.log(req.body)
-}
+
 
 module.exports = {
+    adminLog,
     homePg,
     savePg,
     displayPg,
@@ -70,7 +94,7 @@ module.exports = {
     updateDelete,
     editData,
     editSave,
-    adminInfo, 
+    
 
 }
 

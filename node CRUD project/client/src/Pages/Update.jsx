@@ -26,7 +26,7 @@ function Update() {
     }
 
     let myEdit = async (id) => {
-        navigate(`/edit/${id}`)
+        navigate(`/stu-dash/edit/${id}`);; 
         console.log("ok id come to edit pg.")
     }
 

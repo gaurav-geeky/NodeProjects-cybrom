@@ -1,16 +1,19 @@
 import { Route, Routes } from "react-router-dom"
+
+// students
 import Home from "./Pages/Home"
-import Layout from "./Pages/Layout"
 import About from "./Pages/About"
 import Form from "./Pages/Formdata"
 import Display from "./Pages/Display"
 import Search from "./Pages/Search"
 import Update from "./Pages/Update"
 import Edit from "./Pages/Edit"
-import Lay from "./Admin/Lay"
-import Adminlog from "./Admin/Adminlog"
+import StuDash from "./Pages/StuDash"
+
 
 // admin 
+import Adminlog from "./Admin/Adminlog"
+import Layout from "./Admin/Layout"
 
 
 
@@ -21,21 +24,21 @@ function App() {
       <div>
 
         <Routes>
-          <Route path="/" element={<Lay />}>
+          <Route path="/" element={<Layout />}>
             <Route index element={<Adminlog/> } />
           </Route>
         </Routes>
 
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="stu-dash" element={<StuDash />}>
 
             <Route index element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/form" element={<Form />} />
-            <Route path="/display" element={<Display />} />
-            <Route path="/search" element={<Search />} />
-            <Route path="/update" element={<Update />} />
-            <Route path="/edit/:id" element={<Edit />} />
+            <Route path="about" element={<About />} />
+            <Route path="form" element={<Form />} />
+            <Route path="display" element={<Display />} />
+            <Route path="search" element={<Search />} />
+            <Route path="update" element={<Update />} />
+            <Route path="edit/:id" element={<Edit />} />
 
           </Route>
         </Routes>

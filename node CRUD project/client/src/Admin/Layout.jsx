@@ -1,9 +1,10 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 
-const Lay = () => {
+// admin's layout 
+const Layout = () => {
   return (
-    <div>
+    <div  className='h-screen bg-green-100'>
         
       <Outlet/> 
 
@@ -11,4 +12,4 @@ const Lay = () => {
   )
 }
 
-export default Lay
+export default Layout
