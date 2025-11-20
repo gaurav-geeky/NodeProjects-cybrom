@@ -25,57 +25,73 @@ const Adminlog = () => {
         navigate("/stu-dash")
     };
 
-    return (
+return (
+  <>
+    <div className="w-full min-h-screen bg-orange-500 flex flex-col">
 
-        <>
-            <div className=''>
-                <nav className='border-1 border-black'>
-                    <h1 className='text-5xl'>Students Database Application</h1>
-                </nav>
+      {/* TOP HEADING */}
+      <h1 className="text-center text-4xl font-bold text-white py-6">
+        Students Database Application
+      </h1>
 
-                <div>
+      {/* CENTER WRAPPER */}
+      <div className="flex-1 flex items-center justify-center">
 
-                    <form className='border-1 w-100 m-5 ' onSubmit={handelSubmit}>
+        {/* MAIN LOGIN BOX */}
+        <div className="w-[90%] md:w-[75%] lg:w-[65%] h-[75vh] bg-white rounded-2xl shadow-xl flex overflow-hidden">
 
-                        <p className=''>
-                            <label>Enter Email : </label>
-                            <input
-                                className='border-1 p'
-                                name='email'
-                                type="text"
-                                value={data.email || ""}
-                                onChange={handleinput}
-                            />
-                        </p>
+          {/* LEFT SIDE */}
+          <div className="hidden md:flex w-1/2 bg-gray-900 text-white items-center justify-center px-6">
+            <h1 className="text-2xl font-semibold">
+              Turn your projects into reality.
+            </h1>
+          </div>
 
-                        <p className=''>
-                            <label>Enter Password : </label>
-                            <input
-                                className='border-1 p'
-                                name='password'
-                                type="text"
-                                value={data.password || ""}
-                                onChange={handleinput}
-                            />
-                        </p>
+          {/* RIGHT FORM */}
+          <div className="w-full md:w-1/2 flex items-center justify-center p-8 bg-white">
+            <form className="w-full max-w-sm space-y-5" onSubmit={handelSubmit}>
+              
+              <h1 className="text-3xl font-bold text-center mb-4">Admin Login</h1>
 
-                        <button onClick={handelSubmit}> Login </button>
-                    </form>
-                </div>
+              <div>
+                <label className="block mb-1 font-medium">Email</label>
+                <input
+                  name="email"
+                  type="text"
+                  value={data.email || ""}
+                  onChange={handleinput}
+                  className="w-full border p-2 rounded-md outline-none"
+                />
+              </div>
 
-                {/* FOOTER */}
-                <footer
-                    id="studentfooter"
-                    className="w-full h-20 bg-white shadow-inner flex items-center justify-between px-8 mt-auto"
-                >
-                    <p>© All rights reserved.</p>
-                    <p>Registered Office: 23 Old Bunglow Farm House</p>
-                    <p>Company reserves all rights.</p>
-                </footer>
+              <div>
+                <label className="block mb-1 font-medium">Password</label>
+                <input
+                  name="password"
+                  type="password"
+                  value={data.password || ""}
+                  onChange={handleinput}
+                  className="w-full border p-2 rounded-md outline-none"
+                />
+              </div>
 
-            </div>
-        </>
-    )
+              <button
+                type="submit"
+                className="w-full bg-orange-500 text-white py-2 rounded-md font-semibold"
+              >
+                Login
+              </button>
+            </form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </>
+);
+
+
+
 }
 
 export default Adminlog
